@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  web:
+    build:
+      context: ./be_app/
+
+    command: >
+      sh -c "python ./be_app/manage.py migrate &&
+             python ./be_app/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  ui:
+    build:
+      context: ./fe_app
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /fe_app/node_modules
+      - ./fe_app:/app
+    ports:
+      - "3000:3000"
+
+  ui_tests:
+    build:
+      context: ./fe_app
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /fe_app/node_modules
+      - ./fe_app:/app
+    command: ["npm", "run", "test"]
