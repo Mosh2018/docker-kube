@@ -10,7 +10,7 @@ services:
   # do these steps before installing
   # 1.  build docker images
 before_install:
-  - docker build -t mosh2018/docker-react -f /fe_app/Dockerfile.dev .
+  - docker build -t mosh2018/docker-react -f fe_app/Dockerfile.dev .
 
 # build tests
 script:
