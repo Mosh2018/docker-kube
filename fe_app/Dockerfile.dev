@@ -6,6 +6,6 @@ COPY ./fe_app/package.json .
 
 RUN npm install
 
-COPY . . 
+COPY ./fe_app . 
 
 CMD ["npm", "run", "start"]

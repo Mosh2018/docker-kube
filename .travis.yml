@@ -14,5 +14,5 @@ before_install:
 
 # build tests
 script:
-  - docker run mosh2018/docker-react npm run test -- --coverages
+  - docker run mosh2018/docker-react npm run test -- --coverage
 
