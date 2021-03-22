@@ -1,0 +1,18 @@
+# super user permissions
+sudo: required
+
+language: generic
+
+# tell travis what service needed( means that we tell travis we need a copy of docker)
+services:
+  - docker
+
+  # do these steps before installing
+  # 1.  build docker images
+before_install:
+  - docker build -t mosh2018/docker-react -f Dockerfile.dev .
+
+# build tests
+script:
+  - docker run mosh2018/docker-react npm run test -- --coverages
+
