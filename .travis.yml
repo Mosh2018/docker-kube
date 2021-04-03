@@ -15,3 +15,16 @@ before_install:
 # build tests
 script:
   - docker run -e CI=true mosh2018/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+  region: "eu-central-1"
+  app: "docker-react-test-1"
+  env: "Dockerreacttest1-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-149501274876"
+  on:
+    branch: "travis-ci-2"
