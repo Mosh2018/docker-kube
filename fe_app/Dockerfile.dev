@@ -2,10 +2,10 @@ FROM node:alpine
 
 WORKDIR '/app'
 
-COPY ./fe_app/package.json .
+COPY package.json .
 
 RUN npm install
 
-COPY ./fe_app .
+COPY . .
 
 CMD ["npm", "run", "start"]
