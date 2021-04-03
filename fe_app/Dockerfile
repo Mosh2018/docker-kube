@@ -8,7 +8,7 @@ RUN npm install
 
 COPY ./fe_app .
 
-CMD ["npm", "run", "start"]
+RUN npm run build
 
 FROM nginx
 EXPOSE 80
