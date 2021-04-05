@@ -7,6 +7,6 @@ WORKDIR /app
 
 COPY ./be_app/requirements.txt /app/
 
-RUN pip install -r ./be_app/requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . /app/
