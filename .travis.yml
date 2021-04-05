@@ -5,13 +5,13 @@ language: generic
 services:
   - docker
 
-before_install:
-  - docker build . -t mosh2018/react-test -f ./fe_app/Dockerfile.dev .
+#before_install:
+#  - docker build . -t mosh2018/react-test -f ./fe_app/Dockerfile.dev .
+#
+#script:
+#  - docker run -e CI=true mosh2018/react-test npm run test -- --coverage
 
 script:
-  - docker run -e CI=true mosh2018/react-test npm run test -- --coverage
-
-after_success:
   - docker build -t mosh2020/ui ./fe_app .
   - docker build -t mosh2020/web ./be_app .
   - docker build -t mosh2020/nginx ./nginx .
