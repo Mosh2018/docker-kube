@@ -11,9 +11,9 @@ services:
 #script:
 #  - docker run -e CI=true mosh2018/react-test npm run test -- --coverage
 before_install:
-  - docker build . -t mosh2020/ui fe_app/Dockerfile
-  - docker build . -t mosh2020/web be_app/Dockerfile
-  - docker build . -t mosh2020/nginx nginx/Dockerfile
+  - docker build . -t mosh2020/ui -f fe_app/Dockerfile
+  - docker build . -t mosh2020/web -f be_app/Dockerfile
+  - docker build . -t mosh2020/nginx -f nginx/Dockerfile
 
 script:
 #log to docker cli
