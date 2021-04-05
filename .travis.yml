@@ -10,11 +10,12 @@ services:
 #
 #script:
 #  - docker run -e CI=true mosh2018/react-test npm run test -- --coverage
-
-script:
+before_install:
   - docker build . -t mosh2020/ui fe_app/Dockerfile
   - docker build . -t mosh2020/web be_app/Dockerfile
   - docker build . -t mosh2020/nginx nginx/Dockerfile
+
+script:
 #log to docker cli
   - echo "$DOCKER_PSSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # push images to docker hub
