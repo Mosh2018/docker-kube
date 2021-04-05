@@ -5,8 +5,8 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY requirements.txt /app/
+COPY ./be_app/requirements.txt /app/
 
-RUN pip install -r requirements.txt
+RUN pip install -r ./be_app/requirements.txt
 
 COPY . /app/
