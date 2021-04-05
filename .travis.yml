@@ -1,0 +1,22 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build . -t mosh2018/react-test -f ./fe_app/Dockerfile/Dockerfile.dev .
+
+script:
+  - docker run -e CI=true mosh2018/react-test npm run test -- --coverage
+
+after_success:
+  - docker build . -t mosh2018/ui ./fe_app
+  - docker build . -t mosh2018/web ./be_app
+  - docker build . -t mosh2018/nginx ./nginx
+
+#log to docker cli
+  - echo "$DOCKER_PSSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+# push images to docker hub
