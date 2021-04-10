@@ -5,13 +5,15 @@
       "name": "ui",
       "image": "mosh2020/ui",
       "hostname": "ui",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "web",
       "image": "mosh2020/web",
       "hostname": "api",
-      "essential": false
+      "essential": false,
+      "memory": 256
     },
     {
       "name": "nginx",
@@ -24,7 +26,8 @@
           "hostPort": 80
         }
       ],
-      "links": ["ui", "web"]
+      "links": ["ui", "web"],
+      "memory": 128
     }
   ]
 }
