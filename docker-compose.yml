@@ -19,6 +19,7 @@ services:
   web:
     build:
       context: ./be_app/
+      dockerfile: Dockerfile.dev
 
     command: >
       sh -c "python ./be_app/manage.py migrate &&
@@ -44,4 +45,4 @@ services:
       - /app/node_modules
       - ./fe_app:/app
     ports:
-      - "3005:3000"
+      - "3000:3000"
