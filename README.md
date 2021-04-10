@@ -15,3 +15,7 @@ docker exec -it docker-kube_web_1 python ./be_app/manage.py makemigrations
 
 ## adding super user 
 docker exec -it docker-kube_web_1 python ./be_app/manage.py createsuperuser
+
+## open container command line
+docker exec -it <*container id*> /bin/sh
+psql -U postgres

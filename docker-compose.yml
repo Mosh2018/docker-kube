@@ -28,10 +28,11 @@ services:
     ports:
       - "5005:8000"
     environment:
-      - DB_HOST=db
-      - DB_NAME=postgres
-      - DB_USER=postgres
-      - DB_PASS=postgres
+      - PG_HOSTNAME=db
+      - PG_DATABASE=postgres
+      - PG_USERNAME=postgres
+      - PG_PASSWORD=postgres
+      - PG_PORT=5432
     depends_on:
       - db
 

@@ -22,3 +22,18 @@ script:
   - docker push mosh2020/ui
   - docker push mosh2020/web
   - docker push mosh2020/nginx
+
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+  region: eu-central-1
+  app: multi-docker
+  env: Multidocker-env
+  bucket_name: elasticbeanstalk-eu-central-1-149501274876
+  bucket_path:  docker-multi
+  on:
+    branch: multi-docker
