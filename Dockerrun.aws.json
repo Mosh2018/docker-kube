@@ -3,21 +3,21 @@
   "containerDefinitions": [
     {
       "name": "ui",
-      "image": "mosh2020/ui",
+      "image": "mosh2020/ui:latest",
       "hostname": "ui",
       "essential": false,
       "memory": 128
     },
     {
       "name": "web",
-      "image": "mosh2020/web",
+      "image": "mosh2020/web:latest",
       "hostname": "api",
       "essential": false,
       "memory": 256
     },
     {
       "name": "nginx",
-      "image": "mosh2020/nginx",
+      "image": "mosh2020/nginx:latest",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [
